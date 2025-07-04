@@ -3,6 +3,27 @@
   <GVL Name="GVL" Id="{d69460d5-ddb8-412c-b1ad-296f539dcc8f}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
+	S1 AT %I* : BOOL; //Start
+	S0 AT %I* : BOOL; //Stop
+	S2 AT %I* : BOOL; //Kaantokytkin
+	B1 AT %I* : BOOL; //Nostin yla-asennossa
+	B2 AT %I* : BOOL; //Nostin keskella
+	B3 AT %I* : BOOL; //Nostin alhaalla
+	B4 AT %I* : BOOL; //nostin vasemmalla
+	B5 AT %I* : BOOL; //nostin oikealla
+	B6 AT %I* : BOOL; //NO hihnan puolivalissa
+	B7 AT %I* : BOOL; //NC ylityksen tunnistin
+	B8 AT %I* : BOOL; //NO kappale nostettu hihnalle
+	Vasen AT %Q* : BOOL; //RL 16
+	Oikea AT %Q* : BOOL; //RL17
+	Irrotus AT %Q* : BOOL;//RL18
+	Tarttuminen AT %Q* : BOOL;//RL19
+	Tarttuja_ylospain AT %Q* : BOOL;//RL20
+	Tarttuja_alaspain AT %Q* : BOOL;//RL21
+	vihrea_valo AT %Q* : BOOL; //RL22
+	punainen_valo AT %Q* : BOOL; //RL23
+	valkoinen_valo AT %Q* : BOOL; //RL24
+	moottorin_rele AT %Q* : BOOL; //RL25
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
