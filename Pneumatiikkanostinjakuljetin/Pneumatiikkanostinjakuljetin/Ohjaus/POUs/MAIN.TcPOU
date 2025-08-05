@@ -1,13 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1">
-  <POU Name="MAIN" Id="{5ef8c03d-a5d1-4738-ab1f-948151cf9fc5}">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="MAIN" Id="{5ef8c03d-a5d1-4738-ab1f-948151cf9fc5}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
+	Status_active : BOOL;
 END_VAR
-]]>
-    </Declaration>
+]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[IF GVL.S1 AND NOT Status_active THEN
+	GVL.vihrea_valo:=TRUE;
+	Belt_and_Gripper.STATUS:=TRUE;
+ELSIF GVL.S0 AND Status_active THEN
+	GVL.vihrea_valo:=FALSE;
+	Belt_and_Gripper.STATUS:=FALSE;
+END_IF]]></ST>
     </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="2" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="8" Count="1" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="12" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
