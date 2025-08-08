@@ -64,121 +64,167 @@
 		</System>
 		<Plc>
 			<Project GUID="{4F9B0E5F-EF25-4240-9B81-252A03DE92AD}" Name="Ohjaus" PrjFilePath="Ohjaus\Ohjaus.plcproj" TmcFilePath="Ohjaus\Ohjaus.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{E0024295-2224-B231-4317-A3792CAF1CA6}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{C39E807C-2F24-51FB-56D3-D036AA435B03}">
 					<Name>Ohjaus Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
 							<Name>GVL.X1_I0</Name>
+							<Comment><![CDATA[ Part awailable]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_I1</Name>
+							<Comment><![CDATA[ Mini-slide rectracted]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_I2</Name>
+							<Comment><![CDATA[ Mini-slide extended]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_I3</Name>
+							<Comment><![CDATA[ Mini-slide up]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_I4</Name>
+							<Comment><![CDATA[ Workpiece picked up]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_I5</Name>
+							<Comment><![CDATA[ Workpiece at processing position]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_I6</Name>
+							<Comment><![CDATA[ No workpiece at conveyor end]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_I7</Name>
+							<Comment><![CDATA[ Downstream station free]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_I0</Name>
+							<Comment><![CDATA[ Workpeace awailable]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_I1</Name>
+							<Comment><![CDATA[ Metallic workpiece]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_I2</Name>
+							<Comment><![CDATA[ Workpiece is not black]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X2_I3</Name>
+							<Comment><![CDATA[ Slide full]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_I4</Name>
+							<Comment><![CDATA[ Switch 1 redacted]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_I5</Name>
+							<Comment><![CDATA[ Switch 1 extended]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_I6</Name>
+							<Comment><![CDATA[ Switch 2 retracted]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_I7</Name>
+							<Comment><![CDATA[ Switch 2 extended]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_I0</Name>
+							<Comment><![CDATA[ Workpiece awailable]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_I1</Name>
+							<Comment><![CDATA[ Handling at upstream station]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_I2</Name>
+							<Comment><![CDATA[ Handling at downstream station]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X3_I3</Name>
+							<Comment><![CDATA[ Handling at sorting position]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_I4</Name>
+							<Comment><![CDATA[ Gripper extended]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_I5</Name>
+							<Comment><![CDATA[ Gripper retracted]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_I6</Name>
+							<Comment><![CDATA[ Workpiece is not black]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_I7</Name>
+							<Comment><![CDATA[ Downstream station free ]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.S1</Name>
+							<Comment><![CDATA[ Kapula S1]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.S2</Name>
+							<Comment><![CDATA[ Kapula S2]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.S3</Name>
+							<Comment><![CDATA[ Kapula S3]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.S4</Name>
+							<Comment><![CDATA[ Kapula S4]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.S5</Name>
+							<Comment><![CDATA[ Kapula S5]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.S6</Name>
+							<Comment><![CDATA[ Kapula S6]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.Feedback_K1</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.Feedback_K2</Name>
 							<Type>BOOL</Type>
 						</Var>
 					</Vars>
@@ -186,82 +232,102 @@
 						<Name>PlcTask Outputs</Name>
 						<Var>
 							<Name>GVL.X1_00</Name>
+							<Comment><![CDATA[ Conveyor motor on]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_01</Name>
+							<Comment><![CDATA[ Retract mini-slide]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_02</Name>
+							<Comment><![CDATA[ Extend mini-slide]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_03</Name>
+							<Comment><![CDATA[ move mini-slide downwards]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_04</Name>
+							<Comment><![CDATA[ Vakuum on]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_05</Name>
+							<Comment><![CDATA[ Extend sperator]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_06</Name>
+							<Comment><![CDATA[ NOFunction]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X1_07</Name>
+							<Comment><![CDATA[ Station occupied]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_00</Name>
+							<Comment><![CDATA[ Conveyor motor on]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_01</Name>
+							<Comment><![CDATA[ Extend switch 1]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_02</Name>
+							<Comment><![CDATA[ Extend switch 2]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_03</Name>
+							<Comment><![CDATA[ Retract stopper]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_04</Name>
+							<Comment><![CDATA[ NOFunction]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_05</Name>
+							<Comment><![CDATA[ NOFunction]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_06</Name>
+							<Comment><![CDATA[ NOFunction]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X2_07</Name>
+							<Comment><![CDATA[ Station occupied]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_00</Name>
+							<Comment><![CDATA[ Handling to upstream station]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_01</Name>
+							<Comment><![CDATA[ Handling to downstream station]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_02</Name>
+							<Comment><![CDATA[ Extend Gripper]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_03</Name>
+							<Comment><![CDATA[ Open Gripper]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -278,6 +344,7 @@
 						</Var>
 						<Var>
 							<Name>GVL.X3_07</Name>
+							<Comment><![CDATA[ Station occupied]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 					</Vars>
@@ -1014,8 +1081,11 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 		</Io>
 	</Project>
 	<Mappings>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
 		<OwnerA Name="TIPC^Ohjaus^Ohjaus Instance">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EL1809)">
+				<Link VarA="PlcTask Inputs^GVL.Feedback_K1" VarB="Channel 11^Input"/>
+				<Link VarA="PlcTask Inputs^GVL.Feedback_K2" VarB="Channel 12^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X1_I0" VarB="Channel 9^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X1_I1" VarB="Channel 10^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X1_I2" VarB="Channel 13^Input"/>

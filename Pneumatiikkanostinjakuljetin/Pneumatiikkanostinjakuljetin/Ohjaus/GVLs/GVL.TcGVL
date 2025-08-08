@@ -33,6 +33,9 @@ VAR_GLOBAL
 	S4 AT %I* : BOOL; // Kapula S4
 	S5 AT %I* : BOOL; // Kapula S5
 	S6 AT %I* : BOOL; // Kapula S6
+	Feedback_K1 AT %I* : BOOL;
+	Feedback_K2 AT %I* : BOOL;
+	
 
 	X1_00 AT %Q* : BOOL; // Conveyor motor on
 	X1_01 AT %Q* : BOOL; // Retract mini-slide
@@ -58,6 +61,7 @@ VAR_GLOBAL
 	X3_05 AT %Q* : BOOL; //
 	X3_06 AT %Q* : BOOL; //
 	X3_07 AT %Q* : BOOL; // Station occupied
+
 	
 END_VAR]]></Declaration>
   </GVL>
