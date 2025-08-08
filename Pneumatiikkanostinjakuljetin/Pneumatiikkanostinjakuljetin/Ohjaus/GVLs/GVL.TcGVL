@@ -3,27 +3,62 @@
   <GVL Name="GVL" Id="{d69460d5-ddb8-412c-b1ad-296f539dcc8f}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	S1 AT %I* : BOOL; //Start
-	S0 AT %I* : BOOL; //Stop
-	S2 AT %I* : BOOL; //Kaantokytkin
-	B1 AT %I* : BOOL; //Nostin yla-asennossa
-	B2 AT %I* : BOOL; //Nostin keskella
-	B3 AT %I* : BOOL; //Nostin alhaalla
-	B4 AT %I* : BOOL; //nostin vasemmalla
-	B5 AT %I* : BOOL; //nostin oikealla
-	B6 AT %I* : BOOL; //NO hihnan puolivalissa
-	B7 AT %I* : BOOL; //NC ylityksen tunnistin
-	B8 AT %I* : BOOL; //NO kappale nostettu hihnalle
-	Vasen AT %Q* : BOOL; //RL 16
-	Oikea AT %Q* : BOOL; //RL17
-	Irrotus AT %Q* : BOOL;//RL18
-	Tarttuminen AT %Q* : BOOL;//RL19
-	Tarttuja_ylospain AT %Q* : BOOL;//RL20
-	Tarttuja_alaspain AT %Q* : BOOL;//RL21
-	vihrea_valo AT %Q* : BOOL; //RL22
-	punainen_valo AT %Q* : BOOL; //RL23
-	valkoinen_valo AT %Q* : BOOL; //RL24
-	moottorin_rele AT %Q* : BOOL; //RL25
+	X1_I0 AT %I* : BOOL; // Part awailable
+	X1_I1 AT %I* : BOOL; // Mini-slide rectracted
+	X1_I2 AT %I* : BOOL; // Mini-slide extended
+	X1_I3 AT %I* : BOOL; // Mini-slide up
+	X1_I4 AT %I* : BOOL; // Workpiece picked up
+	X1_I5 AT %I* : BOOL; // Workpiece at processing position
+	X1_I6 AT %I* : BOOL; // No workpiece at conveyor end
+	X1_I7 AT %I* : BOOL; // Downstream station free
+	X2_I0 AT %I* : BOOL; // Workpeace awailable
+	X2_I1 AT %I* : BOOL; // Metallic workpiece
+	X2_I2 AT %I* : BOOL; // Workpiece is not black
+	X2_I3 AT %I* : BOOL; // Slide full
+	X2_I4 AT %I* : BOOL; // Switch 1 redacted
+	X2_I5 AT %I* : BOOL; // Switch 1 extended
+	X2_I6 AT %I* : BOOL; // Switch 2 retracted
+	X2_I7 AT %I* : BOOL; // Switch 2 extended
+	X3_I0 AT %I* : BOOL; // Workpiece awailable
+	X3_I1 AT %I* : BOOL; // Handling at upstream station
+	X3_I2 AT %I* : BOOL; // Handling at downstream station
+	X3_I3 AT %I* : BOOL; // Handling at sorting position
+	X3_I4 AT %I* : BOOL; // Gripper extended
+	X3_I5 AT %I* : BOOL; // Gripper retracted
+	X3_I6 AT %I* : BOOL; // Workpiece is not black
+	X3_I7 AT %I* : BOOL; // Downstream station free 
+	S1 AT %I* : BOOL; // Kapula S1
+	S2 AT %I* : BOOL; // Kapula S2
+	S3 AT %I* : BOOL; // Kapula S3
+	S4 AT %I* : BOOL; // Kapula S4
+	S5 AT %I* : BOOL; // Kapula S5
+	S6 AT %I* : BOOL; // Kapula S6
+
+	X1_00 AT %Q* : BOOL; // Conveyor motor on
+	X1_01 AT %Q* : BOOL; // Retract mini-slide
+	X1_02 AT %Q* : BOOL; // Extend mini-slide
+	X1_03 AT %Q* : BOOL; // move mini-slide downwards
+	X1_04 AT %Q* : BOOL; // Vakuum on
+	X1_05 AT %Q* : BOOL; // Extend sperator
+	X1_06 AT %Q* : BOOL; // NOFunction
+	X1_07 AT %Q* : BOOL; // Station occupied
+	X2_00 AT %Q* : BOOL; // Conveyor motor on
+	X2_01 AT %Q* : BOOL; // Extend switch 1
+	X2_02 AT %Q* : BOOL; // Extend switch 2
+	X2_03 AT %Q* : BOOL; // Retract stopper
+	X2_04 AT %Q* : BOOL; // NOFunction
+	X2_05 AT %Q* : BOOL; // NOFunction
+	X2_06 AT %Q* : BOOL; // NOFunction
+	X2_07 AT %Q* : BOOL; // Station occupied
+	X3_00 AT %Q* : BOOL; // Handling to upstream station
+	X3_01 AT %Q* : BOOL; // Handling to downstream station
+	X3_02 AT %Q* : BOOL; // Extend Gripper
+	X3_03 AT %Q* : BOOL; // Open Gripper
+	X3_04 AT %Q* : BOOL; //
+	X3_05 AT %Q* : BOOL; //
+	X3_06 AT %Q* : BOOL; //
+	X3_07 AT %Q* : BOOL; // Station occupied
+	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

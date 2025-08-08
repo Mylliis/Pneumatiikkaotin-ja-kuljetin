@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
-  <POU Name="MAIN" Id="{5ef8c03d-a5d1-4738-ab1f-948151cf9fc5}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM MAIN
+  <POU Name="PickandPlace" Id="{bf1217fb-f291-4d9f-ad63-4b91b16f2452}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PickandPlace
 VAR
-	Status_active : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[]]></ST>
     </Implementation>
-    <LineIds Name="MAIN">
-      <LineId Id="12" Count="0" />
+    <LineIds Name="PickandPlace">
+      <LineId Id="5" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

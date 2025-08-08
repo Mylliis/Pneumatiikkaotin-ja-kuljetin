@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
-  <POU Name="MAIN" Id="{5ef8c03d-a5d1-4738-ab1f-948151cf9fc5}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM MAIN
+  <POU Name="Sorting" Id="{23aef86d-bd25-42f9-9306-f5a306b038a0}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Sorting
 VAR
-	Status_active : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[]]></ST>
     </Implementation>
-    <LineIds Name="MAIN">
-      <LineId Id="12" Count="0" />
+    <LineIds Name="Sorting">
+      <LineId Id="5" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

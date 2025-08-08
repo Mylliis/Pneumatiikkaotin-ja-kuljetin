@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
-  <POU Name="MAIN" Id="{5ef8c03d-a5d1-4738-ab1f-948151cf9fc5}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM MAIN
+  <POU Name="Handling" Id="{664ad419-ffd5-4bb9-a60b-af473f9c044f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Handling
 VAR
-	Status_active : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[]]></ST>
     </Implementation>
-    <LineIds Name="MAIN">
-      <LineId Id="12" Count="0" />
+    <LineIds Name="Handling">
+      <LineId Id="5" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
