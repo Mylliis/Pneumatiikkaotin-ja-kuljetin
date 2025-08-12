@@ -20,7 +20,7 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
 			<BitSize>4</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
@@ -64,7 +64,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{4F9B0E5F-EF25-4240-9B81-252A03DE92AD}" Name="Ohjaus" PrjFilePath="Ohjaus\Ohjaus.plcproj" TmcFilePath="Ohjaus\Ohjaus.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{C39E807C-2F24-51FB-56D3-D036AA435B03}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Ohjaus\Ohjaus.tmc" TmcHash="{06EB91FC-3DBD-1A89-BAA3-083EFCDC24BD}">
 					<Name>Ohjaus Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -1101,9 +1101,9 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL.X2_I5" VarB="Channel 7^Input"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EL2809)">
-				<Link VarA="PlcTask Outputs^GVL.X1_00" VarB="Channel 6^Output"/>
-				<Link VarA="PlcTask Outputs^GVL.X1_01" VarB="Channel 7^Output"/>
-				<Link VarA="PlcTask Outputs^GVL.X1_02" VarB="Channel 8^Output"/>
+				<Link VarA="PlcTask Outputs^GVL.X1_00" VarB="Channel 5^Output"/>
+				<Link VarA="PlcTask Outputs^GVL.X1_01" VarB="Channel 6^Output"/>
+				<Link VarA="PlcTask Outputs^GVL.X1_02" VarB="Channel 7^Output"/>
 				<Link VarA="PlcTask Outputs^GVL.X1_03" VarB="Channel 9^Output"/>
 				<Link VarA="PlcTask Outputs^GVL.X1_04" VarB="Channel 10^Output"/>
 				<Link VarA="PlcTask Outputs^GVL.X1_05" VarB="Channel 11^Output"/>

@@ -37,6 +37,9 @@
     <Compile Include="POUs\Modules\PickandPlace.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Modules\Visu_handling.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Modules\Sorting.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -51,6 +54,7 @@
   <ItemGroup>
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
+    <Folder Include="images" />
     <Folder Include="POUs\Modules" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
@@ -120,6 +124,11 @@
     <None Include="Ohjaus.tmc">
       <SubType>Content</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\pick&amp;place.png">
+      <SubType>Content</SubType>
+    </Content>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>

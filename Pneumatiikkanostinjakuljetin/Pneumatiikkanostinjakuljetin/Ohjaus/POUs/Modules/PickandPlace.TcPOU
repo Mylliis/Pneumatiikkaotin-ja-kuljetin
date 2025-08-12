@@ -3,13 +3,142 @@
   <POU Name="PickandPlace" Id="{bf1217fb-f291-4d9f-ad63-4b91b16f2452}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PickandPlace
 VAR
+	Station_occupied : BOOL;
+	Timerdelay1 : TON;
+	Start_timer1 : BOOL;
+	Statustimer1 : BOOL;
+	Start_timer2 : BOOL;
+	Timerdelay2 : TP;
+	Statustimer2 : BOOL;
+	Start_timer3 : BOOL;
+	Timerdelay3 : TP;
+	Statustimer3 : BOOL;
+	Start_timer4 : BOOL;
+	Timerdelay4 : TP;
+	Statustimer4 : BOOL;
+	PICKUP_STEP : INT;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[Timerdelay1(IN := Start_timer1 , PT:=  T#1000MS , Q =>Statustimer1);
+Timerdelay2(IN := Start_timer2 , PT:=  T#1000MS , Q =>Statustimer2);
+Timerdelay3(IN := Start_timer3 , PT:=  T#500MS , Q =>Statustimer3);
+		GVL.X1_00 := TRUE; //Turn on conveyor belt
+		IF Station_occupied = FALSE THEN
+		PICKUP_STEP := 1;
+		Station_occupied :=TRUE;
+		Start_timer1 := FALSE;
+		Start_timer2 := FALSE;
+		Statustimer1 := FALSE;
+		Statustimer2 := FALSE;
+		Start_timer3 := FALSE;
+		Start_timer4 := FALSE;
+		Statustimer3 := FALSE;
+		Statustimer4 := FALSE;
+		END_IF
+		CASE PICKUP_STEP OF
+			1:
+
+		GVL.X1_01 := TRUE;  //Retract mini-slide
+		IF GVL.X1_I1 = TRUE THEN //Check if retracted
+			PICKUP_STEP:=2;
+		END_IF
+			2:
+		GVL.X1_03 := TRUE;  //move mini-slide downwards
+		Start_timer1 :=TRUE;
+
+		IF Statustimer1 THEN
+			PICKUP_STEP:=3;
+		END_IF
+			3:
+		GVL.X1_04 := TRUE; // Vacuum on 
+			PICKUP_STEP:=4;
+			4:
+		GVL.X1_03 := FALSE; //move mini-slide upwards
+		Start_timer2 := TRUE;
+
+		IF Statustimer2 THEN
+			PICKUP_STEP:=5;
+			END_IF
+			5:
+		GVL.X1_01 := FALSE; // Turn off retraction of mini-slide
+		GVL.X1_02 := TRUE; // Extend mini-slide
+		IF GVL.X1_I2 THEN
+			PICKUP_STEP:=6;
+		END_IF
+			6:
+		GVL.X1_03 := TRUE; //Move mini-slide downwards
+		Start_timer3 := TRUE;
+
+		IF Statustimer3 THEN
+		GVL.X1_04 := FALSE; // Vacuum off
+		GVL.X1_03 := FALSE;  //Move mini-slide upwards
+		END_IF
+		Station_occupied := FALSE;
+		GVL.X1_02 := FALSE;
+		IF GVL.X1_I0 THEN //Check if piece is awailable
+			Start_timer1 := FALSE;
+		Start_timer2 := FALSE;
+		Statustimer1 := FALSE;
+		Statustimer2 := FALSE;
+		Start_timer3 := FALSE;
+		Start_timer4 := FALSE;
+		Statustimer3 := FALSE;
+		Statustimer4 := FALSE;
+			PICKUP_STEP:=1;
+		END_IF
+		
+		END_CASE]]></ST>
     </Implementation>
     <LineIds Name="PickandPlace">
-      <LineId Id="5" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="120" Count="1" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="83" Count="1" />
+      <LineId Id="86" Count="0" />
+      <LineId Id="88" Count="0" />
+      <LineId Id="99" Count="3" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="111" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="82" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="67" Count="2" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="85" Count="0" />
+      <LineId Id="76" Count="2" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="47" Count="1" />
+      <LineId Id="89" Count="2" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="98" Count="0" />
+      <LineId Id="103" Count="1" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="105" Count="0" />
+      <LineId Id="109" Count="1" />
+      <LineId Id="106" Count="0" />
+      <LineId Id="131" Count="6" />
+      <LineId Id="130" Count="0" />
+      <LineId Id="107" Count="1" />
+      <LineId Id="122" Count="0" />
+      <LineId Id="42" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

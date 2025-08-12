@@ -36,6 +36,7 @@ VAR_GLOBAL
 	Feedback_K1 AT %I* : BOOL;
 	Feedback_K2 AT %I* : BOOL;
 	
+	
 
 	X1_00 AT %Q* : BOOL; // Conveyor motor on
 	X1_01 AT %Q* : BOOL; // Retract mini-slide
@@ -61,8 +62,54 @@ VAR_GLOBAL
 	X3_05 AT %Q* : BOOL; //
 	X3_06 AT %Q* : BOOL; //
 	X3_07 AT %Q* : BOOL; // Station occupied
-
-	
+	VisuIN10 : BOOL;
+	VisuIN11 : BOOL;
+	VisuIN12 : BOOL;
+	VisuIN13 : BOOL;
+	VisuIN14 : BOOL;
+	VisuIN15 : BOOL;
+	VisuIN16 : BOOL;
+	VisuIN17 : BOOL;
+	VisuIN20 : BOOL;
+	VisuIN21 : BOOL;
+	VisuIN22 : BOOL;
+	VisuIN23 : BOOL;
+	VisuIN24 : BOOL;
+	VisuIN25 : BOOL;
+	VisuIN26 : BOOL;
+	VisuIN27 : BOOL;
+	VisuIN30 : BOOL;
+	VisuIN31 : BOOL;
+	VisuIN32 : BOOL;
+	VisuIN33 : BOOL;
+	VisuIN34 : BOOL;
+	VisuIN35 : BOOL;
+	VisuIN36 : BOOL;
+	VisuIN37 : BOOL;
+	VisuOUT0 : BOOL;
+	VisuOUT1 : BOOL;
+	VisuOUT2 : BOOL;
+	VisuOUT3 : BOOL;
+	VisuOUT4 : BOOL;
+	VisuOUT5 : BOOL;
+	VisuOUT6 : BOOL;
+	VisuOUT7 : BOOL;
+	VisuOUT20 : BOOL;
+	VisuOUT21 : BOOL;
+	VisuOUT22 : BOOL;
+	VisuOUT23 : BOOL;
+	VisuOUT24 : BOOL;
+	VisuOUT25 : BOOL;
+	VisuOUT26 : BOOL;
+	VisuOUT27 : BOOL;
+	VisuOUT30: BOOL;
+	VisuOUT31 : BOOL;
+	VisuOUT32: BOOL;
+	VisuOUT33 : BOOL;
+	VisuOUT34 : BOOL;
+	VisuOUT35: BOOL;
+	VisuOUT36 : BOOL;
+	VisuOUT37 : BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
