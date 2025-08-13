@@ -3,13 +3,55 @@
   <POU Name="Sorting" Id="{23aef86d-bd25-42f9-9306-f5a306b038a0}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Sorting
 VAR
+	
+	Timerdelay0 : TON;
+	Start_timer0 : BOOL;
+	Statustimer0 : BOOL;
+	Timerdelay1 : TON;
+	Start_timer1 : BOOL;
+	Statustimer1 : BOOL;
+	Start_timer2 : BOOL;
+	Timerdelay2 : TP;
+	Statustimer2 : BOOL;
+	Timerdelay3 : TP;
+	Start_timer3 : BOOL;
+	Statustimer3 : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[Timerdelay0(IN := Start_timer0 , PT:=  T#5000MS , Q =>Statustimer0);
+Timerdelay1(IN := Start_timer1 , PT:=  T#1000MS , Q =>Statustimer1);
+Timerdelay2(IN := Start_timer2 , PT:=  T#1000MS , Q =>Statustimer2);
+Timerdelay3(IN := Start_timer3 , PT:=  T#800MS , Q =>Statustimer3);
+
+(*
+Do not turn conveyor on when GVL.X2_I3 slide is full 
+
+*)
+IF GVL.X2_I0 THEN
+	GVL.X2_00 := TRUE;
+	Start_timer0 := TRUE;
+	END_IF
+	IF Statustimer0 THEN
+		GVL.X2_00 := FALSE;
+		Start_timer0 :=FALSE;
+	END_IF]]></ST>
     </Implementation>
     <LineIds Name="Sorting">
+      <LineId Id="29" Count="2" />
+      <LineId Id="9" Count="1" />
       <LineId Id="5" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="37" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

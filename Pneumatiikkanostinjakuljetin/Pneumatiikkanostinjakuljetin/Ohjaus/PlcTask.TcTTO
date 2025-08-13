@@ -13,6 +13,12 @@
     <PouCall>
       <Name>PickandPlace</Name>
     </PouCall>
+    <PouCall>
+      <Name>Sorting</Name>
+    </PouCall>
+    <PouCall>
+      <Name>Handling</Name>
+    </PouCall>
     <TaskFBGuid>{31fc7d4c-b99f-4944-89d3-a0fc366e7a23}</TaskFBGuid>
     <Fb_init>{5c325007-e15c-46c6-b7b7-11997098d36e}</Fb_init>
     <Fb_exit>{d25597f2-e623-4f96-92ee-5dac451c38bc}</Fb_exit>

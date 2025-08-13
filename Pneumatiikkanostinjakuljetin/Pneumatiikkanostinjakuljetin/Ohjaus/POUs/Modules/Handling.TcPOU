@@ -3,13 +3,114 @@
   <POU Name="Handling" Id="{664ad419-ffd5-4bb9-a60b-af473f9c044f}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Handling
 VAR
+	Station_occupied : BOOL;
+	Timerdelay0 : TON;
+	Start_timer0 : BOOL;
+	Statustimer0 : BOOL;
+	Timerdelay1 : TON;
+	Start_timer1 : BOOL;
+	Statustimer1 : BOOL;
+	Start_timer2 : BOOL;
+	Timerdelay2 : TP;
+	Statustimer2 : BOOL;
+	Start_timer3 : BOOL;
+	Timerdelay3 : TP;
+	Statustimer3 : BOOL;
+	Start_timer4 : BOOL;
+	Timerdelay4 : TP;
+	Statustimer4 : BOOL;
+	PICKUP_STEP : INT;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[Timerdelay0(IN := Start_timer0 , PT:=  T#1000MS , Q =>Statustimer0);
+Timerdelay1(IN := Start_timer1 , PT:=  T#1000MS , Q =>Statustimer1);
+Timerdelay2(IN := Start_timer2 , PT:=  T#1000MS , Q =>Statustimer2);
+Timerdelay3(IN := Start_timer3 , PT:=  T#800MS , Q =>Statustimer3);
+Timerdelay4(IN := Start_timer4 , PT:=  T#800MS , Q =>Statustimer4);
+		IF GVL.X3_I0 AND Station_occupied = FALSE THEN //Check if piece is awailable
+		Start_timer0 := FALSE;		
+		Start_timer1 := FALSE;
+		Start_timer2 := FALSE;
+		Statustimer0 := FALSE;
+		Statustimer1 := FALSE;
+		Statustimer2 := FALSE;
+		Start_timer3 := FALSE;
+		Start_timer4 := FALSE;
+		Statustimer3 := FALSE;
+		Statustimer4 := FALSE;
+		PICKUP_STEP:=1;
+		END_IF
+
+		CASE PICKUP_STEP OF
+			1:
+		Station_occupied := TRUE;
+		Start_timer0 := TRUE;
+		GVL.X3_00 := TRUE;  //Handling to downstream station
+		
+		IF  Statustimer0 = TRUE THEN
+			Start_timer0 := FALSE;
+			PICKUP_STEP:=2;
+		END_IF
+			2:
+		GVL.X3_03 := TRUE;  //Extend gripper
+		Start_timer1 :=TRUE;
+
+		IF Statustimer1 THEN
+			Start_timer1 := FALSE;
+			PICKUP_STEP:=3;
+		END_IF
+			3:
+		GVL.X3_04 := FALSE; // Close Gripper
+		PICKUP_STEP:=4;
+			4:
+		GVL.X3_02 := FALSE; // Move gripper upwards
+		Start_timer2 := TRUE;
+
+		IF Statustimer2 THEN
+			Start_timer2 := FALSE;
+			PICKUP_STEP:=5;
+			END_IF
+			5:
+		GVL.X3_00 := FALSE; // 
+		GVL.X3_01 := TRUE; // 
+		Start_timer2 := FALSE;
+		Statustimer2 := FALSE;
+		IF GVL.X3_I2 THEN
+			PICKUP_STEP:=6;
+		END_IF
+			6:
+		GVL.X3_02 := TRUE; //Extend gripper
+		Start_timer3 := TRUE;
+
+		IF Statustimer3 THEN
+		Start_timer3 := FALSE;
+		GVL.X3_03 := TRUE; // Open gripper
+		GVL.X3_02 := FALSE;
+		Start_timer4 := TRUE;
+		END_IF
+		IF Statustimer4 THEN
+		Start_timer4 := TRUE;
+		Station_occupied := FALSE;
+		GVL.X3_02 := FALSE;
+		PICKUP_STEP := 0;
+		END_IF
+		0:
+			//Wait until new cycle.
+			 
+		END_CASE]]></ST>
     </Implementation>
     <LineIds Name="Handling">
+      <LineId Id="22" Count="2" />
       <LineId Id="5" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="90" Count="11" />
+      <LineId Id="89" Count="0" />
+      <LineId Id="88" Count="0" />
+      <LineId Id="27" Count="43" />
+      <LineId Id="102" Count="0" />
+      <LineId Id="72" Count="10" />
+      <LineId Id="25" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

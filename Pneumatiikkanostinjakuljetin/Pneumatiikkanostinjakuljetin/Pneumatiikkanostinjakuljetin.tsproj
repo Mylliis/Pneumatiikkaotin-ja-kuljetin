@@ -64,7 +64,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{4F9B0E5F-EF25-4240-9B81-252A03DE92AD}" Name="Ohjaus" PrjFilePath="Ohjaus\Ohjaus.plcproj" TmcFilePath="Ohjaus\Ohjaus.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Ohjaus\Ohjaus.tmc" TmcHash="{06EB91FC-3DBD-1A89-BAA3-083EFCDC24BD}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Ohjaus\Ohjaus.tmc" TmcHash="{CE01A5F9-B360-A119-9ECE-DC25A3FAD061}">
 					<Name>Ohjaus Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
