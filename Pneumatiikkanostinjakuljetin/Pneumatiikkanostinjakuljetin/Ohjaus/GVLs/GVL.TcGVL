@@ -3,7 +3,7 @@
   <GVL Name="GVL" Id="{d69460d5-ddb8-412c-b1ad-296f539dcc8f}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	X1_I0 AT %I* : BOOL; // Part awailable
+	X1_I0 AT %I* : BOOL; // Part available
 	X1_I1 AT %I* : BOOL; // Mini-slide rectracted
 	X1_I2 AT %I* : BOOL; // Mini-slide extended
 	X1_I3 AT %I* : BOOL; // Mini-slide up
@@ -11,7 +11,7 @@ VAR_GLOBAL
 	X1_I5 AT %I* : BOOL; // Workpiece at processing position
 	X1_I6 AT %I* : BOOL; // No workpiece at conveyor end
 	X1_I7 AT %I* : BOOL; // Downstream station free
-	X2_I0 AT %I* : BOOL; // Workpeace awailable
+	X2_I0 AT %I* : BOOL; // Workpeace available
 	X2_I1 AT %I* : BOOL; // Metallic workpiece
 	X2_I2 AT %I* : BOOL; // Workpiece is not black
 	X2_I3 AT %I* : BOOL; // Slide full
@@ -19,7 +19,7 @@ VAR_GLOBAL
 	X2_I5 AT %I* : BOOL; // Switch 1 extended
 	X2_I6 AT %I* : BOOL; // Switch 2 retracted
 	X2_I7 AT %I* : BOOL; // Switch 2 extended
-	X3_I0 AT %I* : BOOL; // Workpiece awailable
+	X3_I0 AT %I* : BOOL; // Workpiece available
 	X3_I1 AT %I* : BOOL; // Handling at upstream station
 	X3_I2 AT %I* : BOOL; // Handling at downstream station
 	X3_I3 AT %I* : BOOL; // Handling at sorting position
@@ -27,6 +27,14 @@ VAR_GLOBAL
 	X3_I5 AT %I* : BOOL; // Gripper retracted
 	X3_I6 AT %I* : BOOL; // Workpiece is not black
 	X3_I7 AT %I* : BOOL; // Downstream station free 
+	X4_I0 AT %I* : BOOL; // Workpiece awailable
+	X4_I1 AT %I* : BOOL; // Workpiece at stopper
+	X4_I2 AT %I* : BOOL; // Workpiece "housing"
+	X4_I3 AT %I* : BOOL; // Switch retracted
+	X4_I4 AT %I* : BOOL; // No workpiece on conveyor 2 (buffer empty)
+	X4_I5 AT %I* : BOOL; // No Workpiece available at pick-up point
+	X4_I6 AT %I* : BOOL; // 
+	X4_I7 AT %I* : BOOL; // Downstream station A free
 	S1 AT %I* : BOOL; // Kapula S1
 	S2 AT %I* : BOOL; // Kapula S2
 	S3 AT %I* : BOOL; // Kapula S3
@@ -62,6 +70,14 @@ VAR_GLOBAL
 	X3_05 AT %Q* : BOOL; //
 	X3_06 AT %Q* : BOOL; //
 	X3_07 AT %Q* : BOOL; // Station occupied
+	X4_00 AT %Q* : BOOL; // Conveyor motor 1 on
+	X4_01 AT %Q* : BOOL; // Conveyor motor 2 on
+	X4_02 AT %Q* : BOOL; // Retract stopper
+	X4_03 AT %Q* : BOOL; // Extend switch
+	X4_04 AT %Q* : BOOL; //
+	X4_05 AT %Q* : BOOL; //
+	X4_06 AT %Q* : BOOL; //
+	X4_07 AT %Q* : BOOL; // Station occupied
 	VisuIN10 : BOOL;
 	VisuIN11 : BOOL;
 	VisuIN12 : BOOL;

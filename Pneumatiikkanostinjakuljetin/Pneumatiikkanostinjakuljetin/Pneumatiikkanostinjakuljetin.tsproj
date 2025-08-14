@@ -64,14 +64,14 @@
 		</System>
 		<Plc>
 			<Project GUID="{4F9B0E5F-EF25-4240-9B81-252A03DE92AD}" Name="Ohjaus" PrjFilePath="Ohjaus\Ohjaus.plcproj" TmcFilePath="Ohjaus\Ohjaus.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Ohjaus\Ohjaus.tmc" TmcHash="{CE01A5F9-B360-A119-9ECE-DC25A3FAD061}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Ohjaus\Ohjaus.tmc" TmcHash="{3BA3F2F9-23CF-8E09-442D-3D9896B0061E}">
 					<Name>Ohjaus Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
 							<Name>GVL.X1_I0</Name>
-							<Comment><![CDATA[ Part awailable]]></Comment>
+							<Comment><![CDATA[ Part available]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -111,7 +111,7 @@
 						</Var>
 						<Var>
 							<Name>GVL.X2_I0</Name>
-							<Comment><![CDATA[ Workpeace awailable]]></Comment>
+							<Comment><![CDATA[ Workpeace available]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -151,7 +151,7 @@
 						</Var>
 						<Var>
 							<Name>GVL.X3_I0</Name>
-							<Comment><![CDATA[ Workpiece awailable]]></Comment>
+							<Comment><![CDATA[ Workpiece available]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -187,6 +187,46 @@
 						<Var>
 							<Name>GVL.X3_I7</Name>
 							<Comment><![CDATA[ Downstream station free ]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_I0</Name>
+							<Comment><![CDATA[ Workpiece awailable]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_I1</Name>
+							<Comment><![CDATA[ Workpiece at stopper]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_I2</Name>
+							<Comment><![CDATA[ Workpiece "housing"]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_I3</Name>
+							<Comment><![CDATA[ Switch retracted]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_I4</Name>
+							<Comment><![CDATA[ No workpiece on conveyor 2 (buffer empty)]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_I5</Name>
+							<Comment><![CDATA[ No Workpiece available at pick-up point]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_I6</Name>
+							<Comment><![CDATA[ ]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_I7</Name>
+							<Comment><![CDATA[ Downstream station A free]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -344,6 +384,43 @@
 						</Var>
 						<Var>
 							<Name>GVL.X3_07</Name>
+							<Comment><![CDATA[ Station occupied]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_00</Name>
+							<Comment><![CDATA[ Conveyor motor 1 on]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_01</Name>
+							<Comment><![CDATA[ Conveyor motor 2 on]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_02</Name>
+							<Comment><![CDATA[ Retract stopper]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_03</Name>
+							<Comment><![CDATA[ Extend switch]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_04</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_05</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_06</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.X4_07</Name>
 							<Comment><![CDATA[ Station occupied]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
@@ -1112,6 +1189,11 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="PlcTask Outputs^GVL.X2_00" VarB="Channel 14^Output"/>
 				<Link VarA="PlcTask Outputs^GVL.X2_01" VarB="Channel 15^Output"/>
 				<Link VarA="PlcTask Outputs^GVL.X2_02" VarB="Channel 16^Output"/>
+				<Link VarA="PlcTask Outputs^GVL.X4_00" VarB="Channel 1^Output"/>
+				<Link VarA="PlcTask Outputs^GVL.X4_01" VarB="Channel 2^Output"/>
+				<Link VarA="PlcTask Outputs^GVL.X4_02" VarB="Channel 3^Output"/>
+				<Link VarA="PlcTask Outputs^GVL.X4_03" VarB="Channel 4^Output"/>
+				<Link VarA="PlcTask Outputs^GVL.X4_07" VarB="Channel 8^Output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 7 (EL2809)">
 				<Link VarA="PlcTask Outputs^GVL.X2_03" VarB="Channel 9^Output"/>
@@ -1129,12 +1211,6 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="PlcTask Outputs^GVL.X3_07" VarB="Channel 8^Output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 8 (EL1809)">
-				<Link VarA="PlcTask Inputs^GVL.S1" VarB="Channel 11^Input"/>
-				<Link VarA="PlcTask Inputs^GVL.S2" VarB="Channel 12^Input"/>
-				<Link VarA="PlcTask Inputs^GVL.S3" VarB="Channel 13^Input"/>
-				<Link VarA="PlcTask Inputs^GVL.S4" VarB="Channel 14^Input"/>
-				<Link VarA="PlcTask Inputs^GVL.S5" VarB="Channel 15^Input"/>
-				<Link VarA="PlcTask Inputs^GVL.S6" VarB="Channel 16^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X2_I6" VarB="Channel 9^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X2_I7" VarB="Channel 10^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X3_I0" VarB="Channel 1^Input"/>
@@ -1144,6 +1220,12 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL.X3_I5" VarB="Channel 5^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X3_I6" VarB="Channel 6^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X3_I7" VarB="Channel 7^Input"/>
+				<Link VarA="PlcTask Inputs^GVL.X4_I0" VarB="Channel 11^Input"/>
+				<Link VarA="PlcTask Inputs^GVL.X4_I1" VarB="Channel 12^Input"/>
+				<Link VarA="PlcTask Inputs^GVL.X4_I2" VarB="Channel 13^Input"/>
+				<Link VarA="PlcTask Inputs^GVL.X4_I3" VarB="Channel 14^Input"/>
+				<Link VarA="PlcTask Inputs^GVL.X4_I4" VarB="Channel 15^Input"/>
+				<Link VarA="PlcTask Inputs^GVL.X4_I5" VarB="Channel 16^Input"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>

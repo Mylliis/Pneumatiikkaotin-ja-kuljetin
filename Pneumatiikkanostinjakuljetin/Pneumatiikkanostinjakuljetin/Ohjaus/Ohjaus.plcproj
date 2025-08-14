@@ -37,6 +37,9 @@
     <Compile Include="POUs\Modules\PickandPlace.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Modules\Separating.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Modules\Visu_handling.TcPOU">
       <SubType>Code</SubType>
     </Compile>

@@ -29,7 +29,7 @@ Timerdelay2(IN := Start_timer2 , PT:=  T#1000MS , Q =>Statustimer2);
 Timerdelay3(IN := Start_timer3 , PT:=  T#800MS , Q =>Statustimer3);
 Timerdelay4(IN := Start_timer4 , PT:=  T#800MS , Q =>Statustimer4);
 		GVL.X1_00 := TRUE; //Turn on conveyor belt
-		IF GVL.X1_I0 AND Station_occupied = FALSE THEN //Check if piece is awailable
+		IF GVL.X1_I0 AND Station_occupied = FALSE THEN //Check if piece is available
 		Start_timer0 := FALSE;		
 		Start_timer1 := FALSE;
 		Start_timer2 := FALSE;
