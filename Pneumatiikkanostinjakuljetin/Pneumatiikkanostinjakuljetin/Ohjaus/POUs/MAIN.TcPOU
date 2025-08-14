@@ -4,12 +4,35 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	Status_active : BOOL;
+		//To safety alias devices
+	QbSafetyErrAck  AT%Q* : BOOL := FALSE;
+	QbEStopReset    AT%Q* : BOOL;
+	bQSafetyRun     AT%Q* : BOOL;
+	bQEStopEDM      AT%Q* : BOOL;
+	relay1 			AT%Q* : BOOL;
+	relay2			AT%Q* : BOOL;
+	
+	//from safety terminal
+	IbEStopReset    AT%I* : BOOL;
+	IbEStopEDM      AT%I* : BOOL;
+	
+	fbDelay 		  	  : TON;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[bQEStopEDM := IbEStopEDM;
+QbEStopReset := IbEStopReset;
+
+IF bQSafetyRun THEN
+	QbSafetyErrAck := TRUE;
+	fbDelay(IN:=TRUE , PT:=T#75MS , Q=> , ET=> );
+	IF fbDelay.Q THEN
+		QbSafetyErrAck := FALSE;
+	END_IF
+END_IF]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
+      <LineId Id="35" Count="8" />
       <LineId Id="19" Count="0" />
     </LineIds>
   </POU>
