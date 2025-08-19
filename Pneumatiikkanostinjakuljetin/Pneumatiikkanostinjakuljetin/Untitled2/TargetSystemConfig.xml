@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TargetSystemConfig Crc="919323012" Version="1.5">
+<TargetSystemConfig Crc="2215696054" Version="1.5">
   <TargetSystemType>HSafetyPLC</TargetSystemType>
   <TargetSystemSubType>EL6900</TargetSystemSubType>
   <IsExternalDevice>false</IsExternalDevice>
@@ -7,16 +7,19 @@
   <TargetSystemObjectName>Term 9 (EL6900)</TargetSystemObjectName>
   <SoftwareVersion>05</SoftwareVersion>
   <SerialNumber>2063631</SerialNumber>
-  <ProjectCRC />
+  <ProjectCRC>37611</ProjectCRC>
   <MapProjectCRC>false</MapProjectCRC>
   <MapSerialNumber>false</MapSerialNumber>
   <VersionNumber>1</VersionNumber>
-  <FSOEAddress>1</FSOEAddress>
+  <FSOEAddress>42</FSOEAddress>
   <DipSwitch>42</DipSwitch>
   <AmsNetID>5.59.45.73.2.1</AmsNetID>
   <AmsPort>1008</AmsPort>
   <ConnectionInfoDataConfigOld>false</ConnectionInfoDataConfigOld>
   <TakeOverSafetyAliasDeviceNamesInProcessImage>false</TakeOverSafetyAliasDeviceNamesInProcessImage>
   <TakeOverStandardAliasDeviceNamesInProcessImage>false</TakeOverStandardAliasDeviceNamesInProcessImage>
-  <BackupRestore Needed="0" Activated="false" RestoreUserAdministration="false" />
+  <BackupRestore Needed="2" Activated="true" RestoreUserAdministration="false">
+    <Id StoreProjectCrcInSlave="true" StoreSlaveProjectCrcInMaster="" StoreMasterProjectCrcInSlave="false" ReadProjectCrcFromMaster="false">5</Id>
+    <Id StoreProjectCrcInSlave="true" StoreSlaveProjectCrcInMaster="" StoreMasterProjectCrcInSlave="false" ReadProjectCrcFromMaster="false">6</Id>
+  </BackupRestore>
 </TargetSystemConfig>

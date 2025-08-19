@@ -57,6 +57,15 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
+			<BitSize>4</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>4</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
 			<Name GUID="{A3E15F99-32F4-8BDA-0778-18F7AA54AC31}" AutoDeleteType="true">INFODATA_1790266199</Name>
 			<BitSize>8</BitSize>
 			<SubItem>
@@ -85,18 +94,32 @@
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{4D9180FC-0B6E-E6C8-867D-D9966E64CFA5}" AutoDeleteType="true">INFODATA_3340600116</Name>
-			<BitSize>8</BitSize>
-			<BaseType GUID="{FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF}"/>
-		</DataType>
-		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
-			<BitSize>4</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
-			<ArrayInfo>
-				<LBound>0</LBound>
-				<Elements>4</Elements>
-			</ArrayInfo>
+			<Name GUID="{3BA3A696-18EE-DEA4-1D0E-7D4F8D4A2410}" AutoDeleteType="true">INFODATA_2834812625</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>Output Safe Data OutputChannel1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Output Safe Data OutputChannel2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>9</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Output Safe Data OutputChannel3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>10</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Output Safe Data OutputChannel4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>11</BitOffs>
+			</SubItem>
 		</DataType>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000008}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..0] OF BYTE</Name>
@@ -134,7 +157,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{4F9B0E5F-EF25-4240-9B81-252A03DE92AD}" Name="Ohjaus" PrjFilePath="Ohjaus\Ohjaus.plcproj" TmcFilePath="Ohjaus\Ohjaus.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Ohjaus\Ohjaus.tmc" TmcHash="{F6B08748-17F8-1479-B32E-14683A76C0FC}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Ohjaus\Ohjaus.tmc" TmcHash="{FB7899D4-4E7D-C776-E032-A474606FEE0A}">
 					<Name>Ohjaus Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -146,6 +169,10 @@
 						</Var>
 						<Var>
 							<Name>MAIN.IbEStopEDM</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.IbEStopError</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -339,11 +366,31 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.Feedback_K1</Name>
+							<Name>GVL_safety.FB_Err</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.Feedback_K2</Name>
+							<Name>GVL_safety.Com_Err</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_safety.Out_Err</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_safety.Safety_Restart</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_safety.Relay1_EDM</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_safety.Start_button</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_safety.Start_pulse</Name>
 							<Type>BOOL</Type>
 						</Var>
 					</Vars>
@@ -372,6 +419,10 @@
 						</Var>
 						<Var>
 							<Name>MAIN.relay2</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.bQSafetyStartpulse</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -528,7 +579,22 @@
 							<Comment><![CDATA[ Station occupied]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
+						<Var>
+							<Name>GVL.Safety_startpulse</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_safety.Safety_RUNSTOP</Name>
+							<Type>BOOL</Type>
+						</Var>
 					</Vars>
+					<UnrestoredVarLinks ImportTime="2025-08-15T09:41:26">
+						<OwnerA Name="InputDst" Prefix="TIPC^Ohjaus^Ohjaus Instance" Type="1">
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 9 (EL6900)">
+								<Link VarA="MAIN.bQSafetyStartpulse" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="StandardInputs^Standard Out Var 9" Size="1" RestoreInfo="ANotFound"/>
+							</OwnerB>
+						</OwnerA>
+					</UnrestoredVarLinks>
 					<Contexts>
 						<Context>
 							<Id>0</Id>
@@ -1048,7 +1114,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 							<SyncMan>001000012600010001000000000100010001001026010000</SyncMan>
 							<SyncMan>001100012200010002000000000100010001001122010000</SyncMan>
 							<SyncMan>00120f002400010003000000000000000200001224010000</SyncMan>
-							<SyncMan>001d10002000010004000000000000000200001d20010000</SyncMan>
+							<SyncMan>001d12002000010004000000000000000200001d20010000</SyncMan>
 							<Fmmu>0000000000000000001200020100000001000000000000000000000000000000</Fmmu>
 							<Fmmu>0000000000000000001d00010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
@@ -1069,24 +1135,41 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 									<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
 								</Entry>
 							</Pdo>
-							<Pdo Name="StandardOutputs" Index="#x17f0" InOut="1" Flags="#x2011" SyncMan="2">
-								<Entry Name="Standard In Var 2" Index="#x6000" Sub="#x01">
+							<Pdo Name="StandardInputs" Index="#x1bf0" Flags="#x2011" SyncMan="3">
+								<Entry Name="Standard Out Var 9" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Standard In Var 3" Index="#x6000" Sub="#x02">
+								<Entry Name="Standard Out Var 10" Index="#x7000" Sub="#x02">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Standard In Var 4" Index="#x6000" Sub="#x03">
+								<Entry Name="Standard Out Var 12" Index="#x7000" Sub="#x03">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Standard In Var 7" Index="#x6000" Sub="#x04">
+								<Entry Name="Standard Out Var 13" Index="#x7000" Sub="#x04">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Standard In Var 8" Index="#x6000" Sub="#x05">
+								<Entry Name="Standard Out Var 14" Index="#x7000" Sub="#x05">
 									<Type>BIT</Type>
 								</Entry>
 								<Entry>
 									<Type GUID="{18071995-0000-0000-0000-002000000003}">ARRAY [0..2] OF BIT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="StandardOutputs" Index="#x17f0" InOut="1" Flags="#x2011" SyncMan="2">
+								<Entry Name="Standard In Var 2" Index="#x6000" Sub="#x01">
+									<Type>BIT</Type>
+								</Entry>
+								<Entry Name="Standard In Var 7" Index="#x6000" Sub="#x02">
+									<Type>BIT</Type>
+								</Entry>
+								<Entry Name="Standard In Var 8" Index="#x6000" Sub="#x03">
+									<Type>BIT</Type>
+								</Entry>
+								<Entry Name="Standard In Var 11" Index="#x6000" Sub="#x04">
+									<Type>BIT</Type>
+								</Entry>
+								<Entry>
+									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Connection Info Data" Index="#x1bf9" Flags="#x2011" SyncMan="3">
@@ -1094,7 +1177,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 									<Type GUID="{A3E15F99-32F4-8BDA-0778-18F7AA54AC31}">INFODATA_1790266199</Type>
 								</Entry>
 								<Entry Name="Message_6 Info Data" Index="#x7000" Sub="#x02">
-									<Type GUID="{4D9180FC-0B6E-E6C8-867D-D9966E64CFA5}">INFODATA_3340600116</Type>
+									<Type GUID="{3BA3A696-18EE-DEA4-1D0E-7D4F8D4A2410}">INFODATA_2834812625</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="DEVICE Inputs" Index="#x1bff" Flags="#x0011" SyncMan="3">
@@ -1327,20 +1410,18 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 		<MappingInfo Identifier="{03040010-0010-0304-1000-040310000403}" Id="#x02030020" Watchdog="04000000040000000400000004000000"/>
 		<OwnerA Name="TIID^Device 1 (EtherCAT)">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 10 (EL1904)">
-				<Link VarA="Term 1 (EK1200)^Term 9 (EL6900)^ConnectionInputs^Message_5 TxPDO" VarB="Module 1 (FSOES)^RxPDO^FSOE"/>
+				<Link VarA="Term 1 (EK1200)^Term 9 (EL6900)^ConnectionOutputs^Message_5 RxPDO" VarB="Module 1 (FSOES)^TxPDO^FSOE"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 11 (EL2904)">
 				<Link VarA="Term 1 (EK1200)^Term 9 (EL6900)^ConnectionOutputs^Message_6 RxPDO" VarB="Module 1 (FSOES)^TxPDO^FSOE"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 9 (EL6900)">
-				<Link VarA="Term 1 (EK1200)^Term 10 (EL1904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_5 RxPDO"/>
+				<Link VarA="Term 1 (EK1200)^Term 10 (EL1904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_5 TxPDO"/>
 				<Link VarA="Term 1 (EK1200)^Term 11 (EL2904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_6 TxPDO"/>
 			</OwnerB>
 		</OwnerA>
 		<OwnerA Name="TIPC^Ohjaus^Ohjaus Instance">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EL1809)">
-				<Link VarA="PlcTask Inputs^GVL.Feedback_K1" VarB="Channel 11^Input"/>
-				<Link VarA="PlcTask Inputs^GVL.Feedback_K2" VarB="Channel 12^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X1_I0" VarB="Channel 9^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X1_I1" VarB="Channel 10^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X1_I2" VarB="Channel 13^Input"/>
@@ -1354,6 +1435,8 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL.X2_I2" VarB="Channel 5^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X2_I4" VarB="Channel 6^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X2_I5" VarB="Channel 7^Input"/>
+				<Link VarA="PlcTask Inputs^GVL_safety.Relay1_EDM" VarB="Channel 11^Input"/>
+				<Link VarA="PlcTask Inputs^GVL_safety.Start_button" VarB="Channel 12^Input"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EL2809)">
 				<Link VarA="PlcTask Outputs^GVL.X1_00" VarB="Channel 5^Output"/>
@@ -1374,6 +1457,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="PlcTask Outputs^GVL.X4_07" VarB="Channel 8^Output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 7 (EL2809)">
+				<Link VarA="PlcTask Outputs^GVL.Safety_startpulse" VarB="Channel 6^Output"/>
 				<Link VarA="PlcTask Outputs^GVL.X2_03" VarB="Channel 9^Output"/>
 				<Link VarA="PlcTask Outputs^GVL.X2_04" VarB="Channel 10^Output"/>
 				<Link VarA="PlcTask Outputs^GVL.X2_05" VarB="Channel 11^Output"/>
@@ -1384,7 +1468,6 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="PlcTask Outputs^GVL.X3_02" VarB="Channel 3^Output"/>
 				<Link VarA="PlcTask Outputs^GVL.X3_03" VarB="Channel 4^Output"/>
 				<Link VarA="PlcTask Outputs^GVL.X3_04" VarB="Channel 5^Output"/>
-				<Link VarA="PlcTask Outputs^GVL.X3_05" VarB="Channel 6^Output"/>
 				<Link VarA="PlcTask Outputs^GVL.X3_06" VarB="Channel 7^Output"/>
 				<Link VarA="PlcTask Outputs^GVL.X3_07" VarB="Channel 8^Output"/>
 			</OwnerB>
@@ -1403,12 +1486,19 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL.X4_I3" VarB="Channel 14^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X4_I4" VarB="Channel 15^Input"/>
 				<Link VarA="PlcTask Inputs^GVL.X4_I5" VarB="Channel 16^Input"/>
+				<Link VarA="PlcTask Inputs^GVL_safety.Safety_Restart" VarB="Channel 8^Input"/>
 				<Link VarA="PlcTask Inputs^MAIN.IbEStopReset" VarB="Channel 7^Input"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 9 (EL6900)">
+				<Link VarA="PlcTask Inputs^GVL_safety.Com_Err" VarB="StandardInputs^Standard Out Var 13"/>
+				<Link VarA="PlcTask Inputs^GVL_safety.FB_Err" VarB="StandardInputs^Standard Out Var 12"/>
+				<Link VarA="PlcTask Inputs^GVL_safety.Out_Err" VarB="StandardInputs^Standard Out Var 14"/>
+				<Link VarA="PlcTask Inputs^GVL_safety.Start_pulse" VarB="StandardInputs^Standard Out Var 9"/>
+				<Link VarA="PlcTask Inputs^MAIN.IbEStopError" VarB="StandardInputs^Standard Out Var 10"/>
+				<Link VarA="PlcTask Outputs^GVL_safety.Safety_RUNSTOP" VarB="StandardOutputs^Standard In Var 11"/>
 				<Link VarA="PlcTask Outputs^MAIN.QbEStopReset" VarB="StandardOutputs^Standard In Var 8"/>
+				<Link VarA="PlcTask Outputs^MAIN.QbSafetyErrAck" VarB="StandardOutputs^Standard In Var 2"/>
 				<Link VarA="PlcTask Outputs^MAIN.relay1" VarB="StandardOutputs^Standard In Var 7"/>
-				<Link VarA="PlcTask Outputs^MAIN.relay2" VarB="StandardOutputs^Standard In Var 4"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>

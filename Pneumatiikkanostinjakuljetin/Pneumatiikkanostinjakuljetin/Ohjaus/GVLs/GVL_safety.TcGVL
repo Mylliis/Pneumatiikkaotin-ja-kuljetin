@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <GVL Name="GVL_safety" Id="{2d150860-29de-45ce-9e94-b091b0b5ab2f}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	Safety_RUNSTOP AT %Q* : BOOL;
+	FB_Err AT%I* : BOOL;
+	Com_Err AT%I* : BOOL;
+	Out_Err AT%I* : BOOL;
+	Safety_Restart AT%I* :BOOL;
+	Relay1_EDM AT%I* :BOOL;
+	Start_button AT%I* :BOOL;
+	
+	Start_pulse AT %I* :BOOL;
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

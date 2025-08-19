@@ -11,18 +11,22 @@ VAR
 	bQEStopEDM      AT%Q* : BOOL;
 	relay1 			AT%Q* : BOOL;
 	relay2			AT%Q* : BOOL;
+	bQSafetyStartpulse      AT%Q* : BOOL := GVL.Safety_startpulse;
 	
 	//from safety terminal
 	IbEStopReset    AT%I* : BOOL;
 	IbEStopEDM      AT%I* : BOOL;
+	IbEStopError 	AT%I* : BOOL;
 	
 	fbDelay 		  	  : TON;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[bQEStopEDM := IbEStopEDM;
-QbEStopReset := IbEStopReset;
-
+QbEStopReset := GVL_safety.Safety_Restart;
+relay1 := GVL_safety.Relay1_EDM;
+bQSafetyRun :=TRUE;
+GVL_safety.Safety_RUNSTOP:= TRUE;
 IF bQSafetyRun THEN
 	QbSafetyErrAck := TRUE;
 	fbDelay(IN:=TRUE , PT:=T#75MS , Q=> , ET=> );
@@ -32,7 +36,9 @@ IF bQSafetyRun THEN
 END_IF]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="35" Count="8" />
+      <LineId Id="35" Count="2" />
+      <LineId Id="65" Count="1" />
+      <LineId Id="38" Count="5" />
       <LineId Id="19" Count="0" />
     </LineIds>
   </POU>

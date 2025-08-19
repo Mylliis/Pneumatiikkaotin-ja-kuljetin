@@ -3,13 +3,34 @@
   <POU Name="Separating" Id="{32e5b463-f3c1-4022-8d80-bede1943fbe5}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Separating
 VAR
+	Station_occupied : BOOL;	
+	Timerdelay0 : TON;
+	Start_timer0 : BOOL;
+	Statustimer0 : BOOL;
+	Timerdelay1 : TON;
+	Start_timer1 : BOOL;
+	Statustimer1 : BOOL;
+	Start_timer2 : BOOL;
+	Timerdelay2 : TP;
+	Statustimer2 : BOOL;
+	Timerdelay3 : TP;
+	Start_timer3 : BOOL;
+	Statustimer3 : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[Timerdelay0(IN := Start_timer0 , PT:=  T#1000MS , Q =>Statustimer0);
+Timerdelay1(IN := Start_timer1 , PT:=  T#1000MS , Q =>Statustimer1);
+Timerdelay2(IN := Start_timer2 , PT:=  T#1000MS , Q =>Statustimer2);
+Timerdelay3(IN := Start_timer3 , PT:=  T#800MS , Q =>Statustimer3);
+		IF GVL.X1_I0 AND Station_occupied = FALSE THEN //Check if piece is available
+				GVL.X1_00 := TRUE; //Turn on conveyor belt
+		END_IF]]></ST>
     </Implementation>
     <LineIds Name="Separating">
+      <LineId Id="22" Count="3" />
       <LineId Id="5" Count="0" />
+      <LineId Id="28" Count="1" />
     </LineIds>
   </POU>
 </TcPlcObject>

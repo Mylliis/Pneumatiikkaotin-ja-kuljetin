@@ -41,8 +41,6 @@ VAR_GLOBAL
 	S4 AT %I* : BOOL; // Kapula S4
 	S5 AT %I* : BOOL; // Kapula S5
 	S6 AT %I* : BOOL; // Kapula S6
-	Feedback_K1 AT %I* : BOOL;
-	Feedback_K2 AT %I* : BOOL;
 	
 	
 
@@ -78,6 +76,7 @@ VAR_GLOBAL
 	X4_05 AT %Q* : BOOL; //
 	X4_06 AT %Q* : BOOL; //
 	X4_07 AT %Q* : BOOL; // Station occupied
+	Safety_startpulse AT %Q* : BOOL;
 	VisuIN10 : BOOL;
 	VisuIN11 : BOOL;
 	VisuIN12 : BOOL;

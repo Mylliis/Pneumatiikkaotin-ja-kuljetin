@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GlobalVariables Crc="3307779099" Id="4cf80107-50ee-4c1d-b8a8-107116f4489b" FileFormatVersion="1.0">
+  <Variable Id="9c24597e-141e-4d63-b8f5-63bce8c7b28c">
+    <Name>RUNSTOP</Name>
+    <SourceUsages>
+      <AliasDeviceIoUsage Id="f09af722-b475-41c1-8511-9df85923f4f8">
+        <SdsId>11</SdsId>
+        <ChannelId>1</ChannelId>
+        <FunctionId>1131179973</FunctionId>
+      </AliasDeviceIoUsage>
+    </SourceUsages>
+    <TargetUsages>
+      <GroupPortUsage Id="912cccc8-63e1-4551-83b2-486a519bd88b">
+        <ModelElementId>8524bd8e-ea37-4931-bbc2-a7e72a26c7c4</ModelElementId>
+      </GroupPortUsage>
+    </TargetUsages>
+  </Variable>
+  <Variable Id="5837c043-fcf6-4d47-89ce-a7243c575999">
+    <Name>FB_Err</Name>
+    <SourceUsages>
+      <GroupPortUsage Id="119a3877-65e1-470b-80df-13a0dff0ce69">
+        <ModelElementId>386d5391-fdb3-4ea3-a3f4-a99260cf7263</ModelElementId>
+      </GroupPortUsage>
+    </SourceUsages>
+    <TargetUsages>
+      <AliasDeviceIoUsage Id="142cf01a-f1df-4c91-a8db-5d16f705527e">
+        <SdsId>12</SdsId>
+        <ChannelId>1</ChannelId>
+        <FunctionId>1131179972</FunctionId>
+      </AliasDeviceIoUsage>
+    </TargetUsages>
+  </Variable>
+  <Variable Id="62c0fac7-4aef-4255-9fb9-7340a870d589">
+    <Name>Com_Err</Name>
+    <SourceUsages>
+      <GroupPortUsage Id="c173bb0c-b52b-4bce-8e05-86881ef06dc9">
+        <ModelElementId>91663d72-cc41-4f27-95ad-48c5731803b7</ModelElementId>
+      </GroupPortUsage>
+    </SourceUsages>
+    <TargetUsages>
+      <AliasDeviceIoUsage Id="fbc23629-527b-4f66-ad08-2bdfa00342da">
+        <SdsId>13</SdsId>
+        <ChannelId>1</ChannelId>
+        <FunctionId>1131179972</FunctionId>
+      </AliasDeviceIoUsage>
+    </TargetUsages>
+  </Variable>
+  <Variable Id="d399474e-d6b8-4430-abb5-bd116c7f3dd3">
+    <Name>Out_Err</Name>
+    <SourceUsages>
+      <GroupPortUsage Id="361018d4-0288-4f79-97a1-c1f11dab229e">
+        <ModelElementId>2ed320db-b6c4-4a24-8f98-1e8300f5c393</ModelElementId>
+      </GroupPortUsage>
+    </SourceUsages>
+    <TargetUsages>
+      <AliasDeviceIoUsage Id="f59bf4e9-625c-4bf3-923b-8c92167f2482">
+        <SdsId>14</SdsId>
+        <ChannelId>1</ChannelId>
+        <FunctionId>1131179972</FunctionId>
+      </AliasDeviceIoUsage>
+    </TargetUsages>
+  </Variable>
+</GlobalVariables>
