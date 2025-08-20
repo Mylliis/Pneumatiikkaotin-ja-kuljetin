@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Crc="2189033571" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project Crc="1054006484" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
@@ -16,7 +16,7 @@
     <IntProjName>Untitled2</IntProjName>
     <IsNewCreated>false</IsNewCreated>
     <SPlcProjVersion>1.8.0.0</SPlcProjVersion>
-    <NextSdsId>21</NextSdsId>
+    <NextSdsId>22</NextSdsId>
     <DocuEditor>aoska</DocuEditor>
     <PlotDate>2025-08-15</PlotDate>
     <CompanyName>Beckhoff Automation GmbH &amp; Co. KG</CompanyName>
@@ -40,6 +40,7 @@
     <None Include="TargetSystemConfig.xml">
       <Visible>false</Visible>
     </None>
+    <None Include="TwinSafeGroup1\Alias Devices\Relay2.sds" />
     <None Include="TwinSafeGroup1\Alias Devices\FB_Err.sds" />
     <None Include="TwinSafeGroup1\Alias Devices\Com_err.sds" />
     <None Include="TwinSafeGroup1\Alias Devices\Out_err.sds" />

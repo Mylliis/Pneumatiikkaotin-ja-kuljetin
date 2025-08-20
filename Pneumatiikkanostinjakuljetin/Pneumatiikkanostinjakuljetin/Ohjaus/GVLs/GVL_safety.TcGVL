@@ -9,6 +9,7 @@ VAR_GLOBAL
 	Out_Err AT%I* : BOOL;
 	Safety_Restart AT%I* :BOOL;
 	Relay1_EDM AT%I* :BOOL;
+	Relay2_EDM AT%I* :BOOL;
 	Start_button AT%I* :BOOL;
 	
 	Start_pulse AT %I* :BOOL;

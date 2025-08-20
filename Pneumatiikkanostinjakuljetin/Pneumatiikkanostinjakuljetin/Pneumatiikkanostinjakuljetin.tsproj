@@ -57,13 +57,20 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
-			<BitSize>4</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
-			<ArrayInfo>
-				<LBound>0</LBound>
-				<Elements>4</Elements>
-			</ArrayInfo>
+			<Name GUID="{2B008623-51EE-EF6A-ACDE-0017707F5BB8}" AutoDeleteType="true">INFODATA_FB_3</Name>
+			<BitSize>24</BitSize>
+			<SubItem>
+				<Name>State</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Diag</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
 		</DataType>
 		<DataType>
 			<Name GUID="{A3E15F99-32F4-8BDA-0778-18F7AA54AC31}" AutoDeleteType="true">INFODATA_1790266199</Name>
@@ -122,6 +129,15 @@
 			</SubItem>
 		</DataType>
 		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
+			<BitSize>4</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>4</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000008}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..0] OF BYTE</Name>
 			<BitSize>8</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
@@ -157,7 +173,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{4F9B0E5F-EF25-4240-9B81-252A03DE92AD}" Name="Ohjaus" PrjFilePath="Ohjaus\Ohjaus.plcproj" TmcFilePath="Ohjaus\Ohjaus.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Ohjaus\Ohjaus.tmc" TmcHash="{FB7899D4-4E7D-C776-E032-A474606FEE0A}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Ohjaus\Ohjaus.tmc" TmcHash="{1CC2FB56-1619-31C7-B8D5-2B79A38B7DC7}">
 					<Name>Ohjaus Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -391,6 +407,10 @@
 						</Var>
 						<Var>
 							<Name>GVL_safety.Start_pulse</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_safety.Relay2_EDM</Name>
 							<Type>BOOL</Type>
 						</Var>
 					</Vars>
@@ -1114,7 +1134,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 							<SyncMan>001000012600010001000000000100010001001026010000</SyncMan>
 							<SyncMan>001100012200010002000000000100010001001122010000</SyncMan>
 							<SyncMan>00120f002400010003000000000000000200001224010000</SyncMan>
-							<SyncMan>001d12002000010004000000000000000200001d20010000</SyncMan>
+							<SyncMan>001d15002000010004000000000000000200001d20010000</SyncMan>
 							<Fmmu>0000000000000000001200020100000001000000000000000000000000000000</Fmmu>
 							<Fmmu>0000000000000000001d00010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
@@ -1168,8 +1188,16 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 								<Entry Name="Standard In Var 11" Index="#x6000" Sub="#x04">
 									<Type>BIT</Type>
 								</Entry>
+								<Entry Name="Standard In Var 21" Index="#x6000" Sub="#x05">
+									<Type>BIT</Type>
+								</Entry>
 								<Entry>
-									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000003}">ARRAY [0..2] OF BIT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="Function Block Info Data" Index="#x1bf8" Flags="#x2011" SyncMan="3">
+								<Entry Name="TwinSafeGroup1.Network1.FBEstop1 Info Data" Index="#x7000" Sub="#x01">
+									<Type GUID="{2B008623-51EE-EF6A-ACDE-0017707F5BB8}">INFODATA_FB_3</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Connection Info Data" Index="#x1bf9" Flags="#x2011" SyncMan="3">
@@ -1308,28 +1336,28 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 								</Entry>
 							</Pdo>
 							<Pdo Name="RxPDO" Index="#x1600" InOut="1" Flags="#x0090" SyncMan="2">
-								<Entry Name="FSOE__FSoE Master CMD" Index="#x7000" Sub="#x01">
+								<Entry Name="FSOE__FSoE Master CMD" Index="#x7000" Sub="#x01" Flags="#x00008020">
 									<Type>USINT</Type>
 								</Entry>
 								<Entry Name="FSOE__OutputChannel1" Index="#x7001" Sub="#x01" Flags="#x00008020">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="FSOE__OutputChannel2" Index="#x7001" Sub="#x02">
+								<Entry Name="FSOE__OutputChannel2" Index="#x7001" Sub="#x02" Flags="#x00008020">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="FSOE__OutputChannel3" Index="#x7001" Sub="#x03">
+								<Entry Name="FSOE__OutputChannel3" Index="#x7001" Sub="#x03" Flags="#x00008020">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="FSOE__OutputChannel4" Index="#x7001" Sub="#x04">
+								<Entry Name="FSOE__OutputChannel4" Index="#x7001" Sub="#x04" Flags="#x00008020">
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="FSOE__">
 									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 								</Entry>
-								<Entry Name="FSOE__FSoE Master CRC_0" Index="#x7000" Sub="#x03">
+								<Entry Name="FSOE__FSoE Master CRC_0" Index="#x7000" Sub="#x03" Flags="#x00008020">
 									<Type>UINT</Type>
 								</Entry>
-								<Entry Name="FSOE__FSoE Master ConnID" Index="#x7000" Sub="#x02">
+								<Entry Name="FSOE__FSoE Master ConnID" Index="#x7000" Sub="#x02" Flags="#x00008020">
 									<Type>UINT</Type>
 								</Entry>
 							</Pdo>
@@ -1413,11 +1441,11 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="Term 1 (EK1200)^Term 9 (EL6900)^ConnectionOutputs^Message_5 RxPDO" VarB="Module 1 (FSOES)^TxPDO^FSOE"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 11 (EL2904)">
-				<Link VarA="Term 1 (EK1200)^Term 9 (EL6900)^ConnectionOutputs^Message_6 RxPDO" VarB="Module 1 (FSOES)^TxPDO^FSOE"/>
+				<Link VarA="Term 1 (EK1200)^Term 9 (EL6900)^ConnectionInputs^Message_6 TxPDO" VarB="Module 1 (FSOES)^RxPDO^FSOE"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 9 (EL6900)">
 				<Link VarA="Term 1 (EK1200)^Term 10 (EL1904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_5 TxPDO"/>
-				<Link VarA="Term 1 (EK1200)^Term 11 (EL2904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_6 TxPDO"/>
+				<Link VarA="Term 1 (EK1200)^Term 11 (EL2904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_6 RxPDO"/>
 			</OwnerB>
 		</OwnerA>
 		<OwnerA Name="TIPC^Ohjaus^Ohjaus Instance">
@@ -1499,6 +1527,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="PlcTask Outputs^MAIN.QbEStopReset" VarB="StandardOutputs^Standard In Var 8"/>
 				<Link VarA="PlcTask Outputs^MAIN.QbSafetyErrAck" VarB="StandardOutputs^Standard In Var 2"/>
 				<Link VarA="PlcTask Outputs^MAIN.relay1" VarB="StandardOutputs^Standard In Var 7"/>
+				<Link VarA="PlcTask Outputs^MAIN.relay2" VarB="StandardOutputs^Standard In Var 21"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>
