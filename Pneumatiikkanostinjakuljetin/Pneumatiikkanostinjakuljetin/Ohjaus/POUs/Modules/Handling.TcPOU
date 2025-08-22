@@ -5,38 +5,29 @@
 VAR
 	Station_occupied : BOOL;
 	Timerdelay0 : TON;
-	Start_timer0 : BOOL;
 	Statustimer0 : BOOL;
 	Timerdelay1 : TON;
-	Start_timer1 : BOOL;
 	Statustimer1 : BOOL;
-	Start_timer2 : BOOL;
-	Timerdelay2 : TP;
+	Timerdelay2 : TON;
 	Statustimer2 : BOOL;
-	Start_timer3 : BOOL;
-	Timerdelay3 : TP;
+	Timerdelay3 : TON;
 	Statustimer3 : BOOL;
-	Start_timer4 : BOOL;
-	Timerdelay4 : TP;
+	Timerdelay4 : TON;
 	Statustimer4 : BOOL;
 	PICKUP_STEP : INT;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Timerdelay0(IN := Start_timer0 , PT:=  T#1000MS , Q =>Statustimer0);
-Timerdelay1(IN := Start_timer1 , PT:=  T#1000MS , Q =>Statustimer1);
-Timerdelay2(IN := Start_timer2 , PT:=  T#1000MS , Q =>Statustimer2);
-Timerdelay3(IN := Start_timer3 , PT:=  T#800MS , Q =>Statustimer3);
-Timerdelay4(IN := Start_timer4 , PT:=  T#800MS , Q =>Statustimer4);
+      <ST><![CDATA[Timerdelay0( PT:=  T#1800MS , Q =>Statustimer0);
+Timerdelay1( PT:=  T#1200MS , Q =>Statustimer1);
+Timerdelay2( PT:=  T#1800MS , Q =>Statustimer2);
+Timerdelay3( PT:=  T#1400MS , Q =>Statustimer3);
+Timerdelay4(PT:=  T#900MS , Q =>Statustimer4);
 		IF GVL.X3_I0 AND Station_occupied = FALSE THEN //Check if piece is awailable
-		Start_timer0 := FALSE;		
-		Start_timer1 := FALSE;
-		Start_timer2 := FALSE;
+
 		Statustimer0 := FALSE;
 		Statustimer1 := FALSE;
 		Statustimer2 := FALSE;
-		Start_timer3 := FALSE;
-		Start_timer4 := FALSE;
 		Statustimer3 := FALSE;
 		Statustimer4 := FALSE;
 		PICKUP_STEP:=1;
@@ -45,57 +36,60 @@ Timerdelay4(IN := Start_timer4 , PT:=  T#800MS , Q =>Statustimer4);
 		CASE PICKUP_STEP OF
 			1:
 		Station_occupied := TRUE;
-		Start_timer0 := TRUE;
+		Timerdelay0.IN:=TRUE;
 		GVL.X3_00 := TRUE;  //Handling to downstream station
 		
 		IF  Statustimer0 = TRUE THEN
-			Start_timer0 := FALSE;
+			Timerdelay0.IN:= FALSE;
 			PICKUP_STEP:=2;
 		END_IF
 			2:
-		GVL.X3_03 := TRUE;  //Extend gripper
-		Start_timer1 :=TRUE;
+		GVL.X3_02 := TRUE;  //Extend gripper
+		Timerdelay1.IN:=TRUE;
 
 		IF Statustimer1 THEN
-			Start_timer1 := FALSE;
+			Timerdelay1.IN:=FALSE;
 			PICKUP_STEP:=3;
 		END_IF
 			3:
-		GVL.X3_04 := FALSE; // Close Gripper
+		GVL.X3_03 := TRUE; // Close Gripper
 		PICKUP_STEP:=4;
 			4:
 		GVL.X3_02 := FALSE; // Move gripper upwards
-		Start_timer2 := TRUE;
+		Timerdelay2.IN:=TRUE;
 
 		IF Statustimer2 THEN
-			Start_timer2 := FALSE;
+			Timerdelay2.IN:=FALSE;
 			PICKUP_STEP:=5;
 			END_IF
 			5:
 		GVL.X3_00 := FALSE; // 
 		GVL.X3_01 := TRUE; // 
-		Start_timer2 := FALSE;
-		Statustimer2 := FALSE;
-		IF GVL.X3_I2 THEN
+		IF GVL.X3_I4 THEN
 			PICKUP_STEP:=6;
 		END_IF
 			6:
 		GVL.X3_02 := TRUE; //Extend gripper
-		Start_timer3 := TRUE;
+		Timerdelay3.IN:=TRUE;
 
 		IF Statustimer3 THEN
-		Start_timer3 := FALSE;
-		GVL.X3_03 := TRUE; // Open gripper
+		Timerdelay3.IN:=FALSE;
 		GVL.X3_02 := FALSE;
-		Start_timer4 := TRUE;
+		Timerdelay4.IN:=TRUE;
 		END_IF
 		IF Statustimer4 THEN
-		Start_timer4 := TRUE;
-		Station_occupied := FALSE;
+		Timerdelay4.IN:=FALSE;
 		GVL.X3_02 := FALSE;
+		GVL.X3_03 := FALSE; // Open gripper
+		GVL.X3_01 :=FALSE;
+		GVL.X3_00 := FALSE;
 		PICKUP_STEP := 0;
+		Station_occupied := FALSE;
 		END_IF
 		0:
+			IF GVL.X3_I0 AND Station_occupied = FALSE THEN
+				;
+			END_IF
 			//Wait until new cycle.
 			 
 		END_CASE]]></ST>
@@ -104,12 +98,30 @@ Timerdelay4(IN := Start_timer4 , PT:=  T#800MS , Q =>Statustimer4);
       <LineId Id="22" Count="2" />
       <LineId Id="5" Count="0" />
       <LineId Id="26" Count="0" />
-      <LineId Id="90" Count="11" />
+      <LineId Id="90" Count="0" />
+      <LineId Id="93" Count="3" />
+      <LineId Id="99" Count="2" />
       <LineId Id="89" Count="0" />
       <LineId Id="88" Count="0" />
-      <LineId Id="27" Count="43" />
+      <LineId Id="27" Count="6" />
+      <LineId Id="129" Count="0" />
+      <LineId Id="35" Count="6" />
+      <LineId Id="130" Count="0" />
+      <LineId Id="43" Count="9" />
+      <LineId Id="131" Count="0" />
+      <LineId Id="54" Count="4" />
+      <LineId Id="61" Count="8" />
       <LineId Id="102" Count="0" />
-      <LineId Id="72" Count="10" />
+      <LineId Id="72" Count="3" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="132" Count="0" />
+      <LineId Id="127" Count="0" />
+      <LineId Id="78" Count="0" />
+      <LineId Id="128" Count="0" />
+      <LineId Id="79" Count="1" />
+      <LineId Id="123" Count="2" />
+      <LineId Id="81" Count="1" />
       <LineId Id="25" Count="0" />
     </LineIds>
   </POU>

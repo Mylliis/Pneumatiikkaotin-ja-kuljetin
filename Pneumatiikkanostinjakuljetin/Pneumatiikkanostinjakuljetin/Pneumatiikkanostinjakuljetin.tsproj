@@ -57,6 +57,15 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
+			<BitSize>4</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>4</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
 			<Name GUID="{2B008623-51EE-EF6A-ACDE-0017707F5BB8}" AutoDeleteType="true">INFODATA_FB_3</Name>
 			<BitSize>24</BitSize>
 			<SubItem>
@@ -129,15 +138,6 @@
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
-			<BitSize>4</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
-			<ArrayInfo>
-				<LBound>0</LBound>
-				<Elements>4</Elements>
-			</ArrayInfo>
-		</DataType>
-		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000008}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..0] OF BYTE</Name>
 			<BitSize>8</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
@@ -173,7 +173,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{4F9B0E5F-EF25-4240-9B81-252A03DE92AD}" Name="Ohjaus" PrjFilePath="Ohjaus\Ohjaus.plcproj" TmcFilePath="Ohjaus\Ohjaus.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Ohjaus\Ohjaus.tmc" TmcHash="{1CC2FB56-1619-31C7-B8D5-2B79A38B7DC7}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Ohjaus\Ohjaus.tmc" TmcHash="{31C86BA1-5F2F-23EF-E234-9417BEA4ECAA}">
 					<Name>Ohjaus Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -288,22 +288,22 @@
 						</Var>
 						<Var>
 							<Name>GVL.X3_I3</Name>
-							<Comment><![CDATA[ Handling at sorting position]]></Comment>
+							<Comment><![CDATA[ ]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_I4</Name>
-							<Comment><![CDATA[ Gripper extended]]></Comment>
+							<Comment><![CDATA[ Handling at sorting position]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_I5</Name>
-							<Comment><![CDATA[ Gripper retracted]]></Comment>
+							<Comment><![CDATA[ Gripper extended]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.X3_I6</Name>
-							<Comment><![CDATA[ Workpiece is not black]]></Comment>
+							<Comment><![CDATA[ Gripper retracted]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -402,15 +402,15 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>GVL_safety.Relay2_EDM</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>GVL_safety.Start_button</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL_safety.Start_pulse</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_safety.Relay2_EDM</Name>
 							<Type>BOOL</Type>
 						</Var>
 					</Vars>
@@ -1188,11 +1188,8 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 								<Entry Name="Standard In Var 11" Index="#x6000" Sub="#x04">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Standard In Var 21" Index="#x6000" Sub="#x05">
-									<Type>BIT</Type>
-								</Entry>
 								<Entry>
-									<Type GUID="{18071995-0000-0000-0000-002000000003}">ARRAY [0..2] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Function Block Info Data" Index="#x1bf8" Flags="#x2011" SyncMan="3">
@@ -1527,7 +1524,6 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="PlcTask Outputs^MAIN.QbEStopReset" VarB="StandardOutputs^Standard In Var 8"/>
 				<Link VarA="PlcTask Outputs^MAIN.QbSafetyErrAck" VarB="StandardOutputs^Standard In Var 2"/>
 				<Link VarA="PlcTask Outputs^MAIN.relay1" VarB="StandardOutputs^Standard In Var 7"/>
-				<Link VarA="PlcTask Outputs^MAIN.relay2" VarB="StandardOutputs^Standard In Var 21"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>

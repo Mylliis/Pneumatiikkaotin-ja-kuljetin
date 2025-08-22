@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplicationLanguageDiagram Crc="993160222" dslVersion="1.5.0.0" Id="8a018459-7116-4b7a-9319-aa26f2886b47" absoluteBounds="0, 0, 25.375, 8.5" name="TwinSAFE">
+<safetyApplicationLanguageDiagram Crc="331859038" dslVersion="1.5.0.0" Id="8a018459-7116-4b7a-9319-aa26f2886b47" absoluteBounds="0, 0, 25.375, 8.5" name="TwinSAFE">
   <safetyApplicationMoniker name="/" />
   <nestedChildShapes>
     <networkSwimLane Id="a45884fe-70d7-4d1d-89ab-dbb74f14476d" absoluteBounds="0, 0, 25.375, 5.2">
@@ -87,7 +87,7 @@
             </outPortShape>
           </relativeChildShapes>
         </fBRsShape>
-        <wiredLinkConnector Id="2497172e-b783-4447-baaa-be95e0a67fce" edgePoints="[(9.545 : 3.965); (9.07 : 3.965); (9.07 : 3.75); (7.65 : 3.75)]" fixedFrom="Caller" fixedTo="Caller" color="0, 0, 0" thickness="0.01" expandedManuallyRouted="false">
+        <wiredLinkConnector Id="2497172e-b783-4447-baaa-be95e0a67fce" edgePoints="[(9.545 : 3.965); (9.17 : 3.965); (9.17 : 3.75); (7.65 : 3.75)]" fixedFrom="Caller" fixedTo="Caller" color="0, 0, 0" thickness="0.01" expandedManuallyRouted="false">
           <wiredLinkMoniker Id="78e66075-e204-4659-8fbe-de7947948fdb" />
           <nodes>
             <inPortShapeMoniker Id="66b40ba6-13c5-4d17-8dab-7df85d7fd7ab" />

@@ -24,6 +24,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[bQEStopEDM := IbEStopEDM;
 QbEStopReset := GVL_safety.Safety_Restart;
+QbSafetyErrAck := GVL_safety.Safety_Restart;
 relay1 := GVL_safety.Relay1_EDM;
 relay2 := GVL_safety.Relay2_EDM;
 bQSafetyRun :=TRUE;
@@ -37,7 +38,9 @@ IF bQSafetyRun THEN
 END_IF]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="35" Count="2" />
+      <LineId Id="35" Count="1" />
+      <LineId Id="106" Count="0" />
+      <LineId Id="37" Count="0" />
       <LineId Id="86" Count="0" />
       <LineId Id="65" Count="1" />
       <LineId Id="38" Count="5" />

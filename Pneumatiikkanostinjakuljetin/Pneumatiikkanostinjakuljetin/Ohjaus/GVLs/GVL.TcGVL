@@ -22,10 +22,10 @@ VAR_GLOBAL
 	X3_I0 AT %I* : BOOL; // Workpiece available
 	X3_I1 AT %I* : BOOL; // Handling at upstream station
 	X3_I2 AT %I* : BOOL; // Handling at downstream station
-	X3_I3 AT %I* : BOOL; // Handling at sorting position
-	X3_I4 AT %I* : BOOL; // Gripper extended
-	X3_I5 AT %I* : BOOL; // Gripper retracted
-	X3_I6 AT %I* : BOOL; // Workpiece is not black
+	X3_I3 AT %I* : BOOL; // 
+	X3_I4 AT %I* : BOOL; // Handling at sorting position
+	X3_I5 AT %I* : BOOL; // Gripper extended
+	X3_I6 AT %I* : BOOL; // Gripper retracted
 	X3_I7 AT %I* : BOOL; // 
 	X4_I0 AT %I* : BOOL; // Workpiece awailable
 	X4_I1 AT %I* : BOOL; // Workpiece at stopper

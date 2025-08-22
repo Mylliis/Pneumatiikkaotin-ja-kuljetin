@@ -11,13 +11,13 @@ VAR
 	Start_timer1 : BOOL;
 	Statustimer1 : BOOL;
 	Start_timer2 : BOOL;
-	Timerdelay2 : TP;
+	Timerdelay2 : TON;
 	Statustimer2 : BOOL;
 	Start_timer3 : BOOL;
 	Timerdelay3 : TP;
 	Statustimer3 : BOOL;
 	Start_timer4 : BOOL;
-	Timerdelay4 : TP;
+	Timerdelay4 : TON;
 	Statustimer4 : BOOL;
 	PICKUP_STEP : INT;
 END_VAR
@@ -28,8 +28,11 @@ Timerdelay1(IN := Start_timer1 , PT:=  T#1000MS , Q =>Statustimer1);
 Timerdelay2(IN := Start_timer2 , PT:=  T#1000MS , Q =>Statustimer2);
 Timerdelay3(IN := Start_timer3 , PT:=  T#800MS , Q =>Statustimer3);
 Timerdelay4(IN := Start_timer4 , PT:=  T#800MS , Q =>Statustimer4);
-		GVL.X1_00 := TRUE; //Turn on conveyor belt
+
 		IF GVL.X1_I0 AND Station_occupied = FALSE THEN //Check if piece is available
+		GVL.X1_00 := TRUE; //Turn on conveyor belt
+		GVL.X2_00 := TRUE;
+		GVL.X4_00 := TRUE;
 		Start_timer0 := FALSE;		
 		Start_timer1 := FALSE;
 		Start_timer2 := FALSE;
@@ -105,8 +108,11 @@ Timerdelay4(IN := Start_timer4 , PT:=  T#800MS , Q =>Statustimer4);
       <LineId Id="12" Count="0" />
       <LineId Id="120" Count="1" />
       <LineId Id="205" Count="0" />
-      <LineId Id="13" Count="0" />
-      <LineId Id="163" Count="1" />
+      <LineId Id="230" Count="0" />
+      <LineId Id="163" Count="0" />
+      <LineId Id="232" Count="1" />
+      <LineId Id="231" Count="0" />
+      <LineId Id="164" Count="0" />
       <LineId Id="198" Count="0" />
       <LineId Id="165" Count="0" />
       <LineId Id="200" Count="0" />
